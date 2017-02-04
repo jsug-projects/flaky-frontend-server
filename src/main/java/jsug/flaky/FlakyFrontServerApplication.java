@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableCaching
 @EnableZuulProxy
-public class FlakyUiApplication {
+public class FlakyFrontServerApplication {
 	@Bean
 	@Profile("!cloud")
 	RequestDumperFilter dumperFilter() {
@@ -35,6 +35,6 @@ public class FlakyUiApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(FlakyUiApplication.class, args);
+		SpringApplication.run(FlakyFrontServerApplication.class, args);
 	}
 }
