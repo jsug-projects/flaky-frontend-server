@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
+`import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,11 @@ public class UserInfoController {
 		return accessTokenMapping.getUser(token)
 				.map(user -> ResponseEntity.ok(createUserInfo(user)))
 				.orElseGet(() -> ResponseEntity.notFound().build());
+	}
+
+	@GetMapping("me")
+	Object me(@AuthenticationPrincipal FlakyUser user) {
+		return user;
 	}
 
 	@GetMapping("token")
