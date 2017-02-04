@@ -18,7 +18,7 @@ public class FlakyPrincipalExtractor implements PrincipalExtractor {
 	private final String membersApi;
 
 	public FlakyPrincipalExtractor(RestTemplate restTemplate,
-			@Value("${zuul.routes.members.url}") String membersApi) {
+			@Value("${members.url}") String membersApi) {
 		this.restTemplate = restTemplate;
 		this.membersApi = membersApi;
 	}
