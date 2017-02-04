@@ -12,8 +12,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.requestMatchers().antMatchers("/**").and().authorizeRequests()
-				.mvcMatchers("/", "/userinfo").permitAll().anyRequest().authenticated()
-				.and().csrf()
+				.mvcMatchers("/", "/userinfo", "/api/**").permitAll().anyRequest()
+				.authenticated().and().csrf()
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 	}
 }
