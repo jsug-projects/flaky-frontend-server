@@ -3,7 +3,6 @@ package jsug.flaky;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
@@ -35,7 +34,6 @@ public class FlakyPrincipalExtractor implements PrincipalExtractor {
 			if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
 				// Register new member
 				Map<String, Object> newUser = new HashMap<>();
-				newUser.put("memberId", UUID.randomUUID());
 				newUser.put("github", github);
 				newUser.put("company", getValue(map, "company"));
 				Optional.ofNullable(map.get("name")).ifPresent(name -> {
