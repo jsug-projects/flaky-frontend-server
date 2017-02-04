@@ -43,8 +43,8 @@ public class FlakyPrincipalExtractor implements PrincipalExtractor {
 					newUser.put("firstName", split[0]);
 					newUser.put("lastName", split[1]);
 				});
-				user = restTemplate.postForObject("http://localhost:8082/members",
-						newUser, FlakyUser.class);
+				user = restTemplate.postForObject("{path}", newUser, FlakyUser.class,
+						membersApi);
 			}
 			else {
 				throw e;
