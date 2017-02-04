@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>jsug.flaky</groupId>
-	<artifactId>flaky-ui</artifactId>
+	<artifactId>flaky-frontend-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>flaky</name>
+	<name>flaky-frontend-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -44,6 +44,10 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
